@@ -10,9 +10,6 @@ const products = [
 ]
 
 
-
-
-
 const productManager = {
     products: [],
     cart: {},
@@ -67,4 +64,33 @@ productManager.products = products;
 productManager.render();
 
 
+function ParentUser () {
+    const obj = {};
 
+    obj.show = function() {
+
+        alert('data: ' + this.tests);
+    }
+
+    obj.buy = function() {
+        alert('Hi buy');
+    }
+
+    return obj;
+}
+
+
+
+User.prototype = ParentUser();
+
+function User (name, age) {
+    this.id = `f${(~~(Math.random()*1e8)).toString(16)}`;
+    this.name = name;
+    this.age = age;
+}
+
+var vasa  = new User('Vasa', 25);
+var pit  = new User('Pit', 36);
+
+vasa.show();
+pit.show();
